@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styles from '../../styles/Admin.module.css'
 import Image from 'next/image'
 import axios from 'axios'
+import cookie from 'cookie'
 const Admin = ({orders,products}) => {
     const [pizzaList,setPizzaList]=useState(products)
     const [orderList,setOrderList]=useState(orders)

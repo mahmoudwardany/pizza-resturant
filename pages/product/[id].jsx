@@ -90,17 +90,12 @@ if(checked){
   );
 };
 export const getServerSideProps = async ({params}) => {
-  try {
+ 
     const res = await axios.get(`${process.env.API_URL}/products/${params.id}`);
   return {
     props: {
       pizza: res.data,
     },
-  };
-  } catch (error) {
-    console.log(error)
-  }
-
-  
+  };  
 };
 export default Product;

@@ -28,7 +28,6 @@ let admin=false
 if(myCookie.token === process.env.TOKEN){
   admin = true
 }
-try {
   const res = await axios.get(`${process.env.API_URL}/products`);
   return {
     props: {
@@ -36,8 +35,6 @@ try {
       admin
     },
   };
-} catch (error) {
-  console.log(error)
+
 }
   
-};
