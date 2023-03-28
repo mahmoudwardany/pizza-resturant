@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 
-const MONGO_URL = process.env.MONGO_URL
+const MONGO_URL = 'mongodb+srv://MahmoudWardany:mo151294om@cluster0.z8skjbi.mongodb.net/pizza?retryWrites=true&w=majority'
 
 if (!MONGO_URL) {
   throw new Error(
