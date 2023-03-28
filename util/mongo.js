@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 
-const MONGO_URL = 'mongodb+srv://MahmoudWardany:mo151294om@cluster0.z8skjbi.mongodb.net/pizza?retryWrites=true&w=majority'
+const MONGO_URL =process.env.MONGO_URL 
 
   async function dbConnect() {
   try {

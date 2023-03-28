@@ -2,14 +2,13 @@ import React, { useState } from 'react'
 import styles from '../../styles/Admin.module.css'
 import Image from 'next/image'
 import axios from 'axios'
-import cookie from 'cookie'
 const Admin = ({orders,products}) => {
     const [pizzaList,setPizzaList]=useState(products)
     const [orderList,setOrderList]=useState(orders)
     const status=["preparing", "on the way", "delivered"]
 const handleDelete=async(id)=>{
     try {
-        const res=await axios.delete ( `${process.env.API_URL}/products/` + id)
+        const res=await axios.delete ( `http://localhost:3000/api/products/` + id)
         setPizzaList(pizzaList.filter((pizza)=> pizza._id !== id))
     } catch (error) {
         console.log(error)
@@ -20,7 +19,7 @@ const handleStatus=async(id)=>{
     const item=orderList.filter((order) => order._id === id)[0]
     const currentStatus=item.status
     try {
-        const res=await axios.put(`${process.env.API_URL}/orders/` + id ,{
+        const res=await axios.put(`http://localhost:3000/api/orders/` + id ,{
             status:currentStatus + 1,
         })
         setOrderList([
@@ -123,8 +122,8 @@ export const getServerSideProps=async(ctx)=>{
       },
     };
   }
-    const productRes = await axios.get(`${process.env.API_URL}/products`);
-    const orderRes = await axios.get(`${process.env.API_URL}/orders`);
+    const productRes = await axios.get(`http://localhost:3000/api/products`);
+    const orderRes = await axios.get(`http://localhost:3000/api/orders`);
   
     return {
       props: {

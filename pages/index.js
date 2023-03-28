@@ -28,7 +28,7 @@ let admin=false
 if(myCookie.token === process.env.TOKEN){
   admin = true
 }
-  const res = await axios.get(`${process.env.API_URL}/products`);
+  const res = await axios.get(`http://localhost:3000/api/products`);
   return {
     props: {
       pizzaList: res.data,
