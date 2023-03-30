@@ -1,12 +1,13 @@
 import dbConnect from "../../../util/mongo";
 import Order from "../../../model/Order";
+ dbConnect();
+
 const handler = async (req, res) => {
   const {
     method,
     query: { id },
   } = req;
 
-  await dbConnect();
 
   if (method === "GET") {
     try {

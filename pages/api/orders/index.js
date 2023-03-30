@@ -1,8 +1,9 @@
 import dbConnect from "../../../util/mongo"
 import Order from "../../../model/Order";
+dbConnect()
+
 export default async function handleReq(req,res){
     const {method}=req
-    dbConnect()
     if (method === "GET") {
         try {
           const orders = await Order.find();
