@@ -8,7 +8,7 @@ const Admin = ({orders,products}) => {
     const status=["preparing", "on the way", "delivered"]
 const handleDelete=async(id)=>{
     try {
-        const res=await axios.delete ( `http://localhost:3000/api/products/` + id)
+        const res=await axios.delete ( `https://pizzaina.onrender.com/` + id)
         setPizzaList(pizzaList.filter((pizza)=> pizza._id !== id))
     } catch (error) {
         console.log(error)
@@ -19,7 +19,7 @@ const handleStatus=async(id)=>{
     const item=orderList.filter((order) => order._id === id)[0]
     const currentStatus=item.status
     try {
-        const res=await axios.put(`http://localhost:3000/api/orders/` + id ,{
+        const res=await axios.put(`https://pizzaina.onrender.com/` + id ,{
             status:currentStatus + 1,
         })
         setOrderList([
@@ -122,8 +122,8 @@ export const getServerSideProps=async(ctx)=>{
       },
     };
   }
-    const productRes = await axios.get(`http://localhost:3000/api/products`);
-    const orderRes = await axios.get(`http://localhost:3000/api/orders`);
+    const productRes = await axios.get(`https://pizzaina.onrender.com/api/products`);
+    const orderRes = await axios.get(`https://pizzaina.onrender.com/api/orders`);
   
     return {
       props: {

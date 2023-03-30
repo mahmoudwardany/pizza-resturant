@@ -1,7 +1,6 @@
 import { useState } from "react";
 import styles from "../styles/Add.module.css";
 import axios from "axios";
-import { useRouter } from "next/router";
 
 const Add = ({ setClose }) => {
   const [file, setFile] = useState(null);
@@ -44,7 +43,7 @@ const Add = ({ setClose }) => {
         img: url,
       };
 
-     const sendData= await axios.post(`http://localhost:3000/api/products`, newProduct);
+     const sendData= await axios.post(`https://pizzaina.onrender.com/api/products`, newProduct);
      console.log(sendData)
       setClose(true);
     } catch (err) {
