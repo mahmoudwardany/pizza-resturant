@@ -1,8 +1,9 @@
 import dbConnect from "../../../util/mongo"
 import Product from "../../../model/Product"
-dbConnect()
 
 export default async function handleReq(req,res){
+ await dbConnect();
+
     const {method,query:{id},cookies}=req
     const token=cookies.token
     if (method === "GET") {
