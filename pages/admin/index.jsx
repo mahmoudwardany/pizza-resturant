@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styles from '../../styles/Admin.module.css'
 import Image from 'next/image'
 import axios from 'axios'
+import domain from '../../util/confing'
 const Admin = ({orders,products}) => {
     const [pizzaList,setPizzaList]=useState(products)
     const [orderList,setOrderList]=useState(orders)
@@ -122,9 +123,8 @@ export const getServerSideProps=async(ctx)=>{
       },
     };
   }
-    const productRes = await axios.get(`https://pizzaina.onrender.com/api/products`);
-    const orderRes = await axios.get(`https://pizzaina.onrender.com/api/orders`);
-  
+    const productRes = await axios.get(`${domain}/api/products`);
+    const orderRes = await axios.get(`${domain}/api/orders`);
     return {
       props: {
         orders: orderRes.data,

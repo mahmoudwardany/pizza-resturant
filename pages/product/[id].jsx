@@ -4,6 +4,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { addProduct } from "../../state/cartSlice";
+import domain from "../../util/confing";
 const Product = ({pizza}) => {
   const dispatch=useDispatch()
   const [price,setPrice]=useState(pizza.prices[0])
@@ -91,7 +92,7 @@ if(checked){
 };
 export const getServerSideProps = async ({params}) => {
  
-    const res = await axios.get(`https://pizzaina.onrender.com/api/products/${params.id}`);
+    const res = await axios.get(`${domain}/api/products/${params.id}`);
   return {
     props: {
       pizza: res.data,

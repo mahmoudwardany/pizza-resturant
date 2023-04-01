@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "../styles/Add.module.css";
 import axios from "axios";
-
+import domain from '../util/confing'
 const Add = ({ setClose }) => {
   const [file, setFile] = useState(null);
   const [title, setTitle] = useState(null);
@@ -43,7 +43,7 @@ const Add = ({ setClose }) => {
         img: url,
       };
 
-     const sendData= await axios.post(`https://pizzaina.onrender.com/api/products`, newProduct);
+     const sendData= await axios.post(`${domain}/api/products`, newProduct);
      console.log(sendData)
       setClose(true);
     } catch (err) {

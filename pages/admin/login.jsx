@@ -11,7 +11,7 @@ const Login = () => {
 
   const handleClick = async () => {
     try {
-      await axios.post("https://pizzaina.onrender.com/api/login", {
+      await axios.post(`${domain}/api/login`, {
         username,
         password,
       });

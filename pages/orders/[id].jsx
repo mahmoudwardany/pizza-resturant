@@ -1,6 +1,7 @@
 import styles from "../../styles/Order.module.css";
 import Image from "next/image";
 import axios from "axios";
+import domain from "../../util/confing";
 
 const Order = ({ order }) => {
   const status = order.status;
@@ -114,7 +115,7 @@ const Order = ({ order }) => {
 };
 
 export const getServerSideProps = async ({ params }) => {
-     const res = await axios.get(`https://pizzaina.onrender.com/api/orders/${params.id}`);
+     const res = await axios.get(`${domain}/api/orders/${params.id}`);
   return {
     props: { order: res.data },
   };
