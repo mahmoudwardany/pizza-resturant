@@ -9,7 +9,7 @@ const Admin = ({orders,products}) => {
     const status=["preparing", "on the way", "delivered"]
 const handleDelete=async(id)=>{
     try {
-        const res=await axios.delete ( `https://pizzaina.onrender.com/` + id)
+        const res=await axios.delete ( `${domain}` + id)
         setPizzaList(pizzaList.filter((pizza)=> pizza._id !== id))
     } catch (error) {
         console.log(error)
@@ -20,7 +20,7 @@ const handleStatus=async(id)=>{
     const item=orderList.filter((order) => order._id === id)[0]
     const currentStatus=item.status
     try {
-        const res=await axios.put(`https://pizzaina.onrender.com/` + id ,{
+        const res=await axios.put(`${domain}` + id ,{
             status:currentStatus + 1,
         })
         setOrderList([

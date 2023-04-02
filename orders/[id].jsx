@@ -1,7 +1,7 @@
 import styles from "../../styles/Order.module.css";
 import Image from "next/image";
 import axios from "axios";
-import domain from "../../util/confing";
+import domain from "../util/confing";
 
 const Order = ({ order }) => {
   const status = order.status;

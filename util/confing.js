@@ -1,7 +1,7 @@
 var domain;
 
 if (process.env.NODE_ENV === 'production') {
-    var domain = 'https://pizzaina.onrender.com'
+    var domain = 'https://pizza-resturant.vercel.app/'
 } else {
     domain= 'http://localhost:3000/'
 }
