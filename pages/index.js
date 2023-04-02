@@ -5,6 +5,7 @@ import Featured from '../components/Featured'
 import PizzaList from '../components/PizzaList'
 import AddBtn from '../components/AddBtn'
 import { useState } from 'react'
+import domain from '../util/confing'
 
 export default function Home({pizzaList,admin}) {
   const [close, setClose] = useState(true)
