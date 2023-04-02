@@ -13,9 +13,7 @@ const PizzaList = ({Pizzas}) => {
       <div className={styles.wrapper}>
         {Pizzas.map((pizza)=>(
           <PizzaCard key={pizza._id} pizza={pizza}/>
-        ))}
-          
-         
+        ))}  
       </div>
     </div>
   );

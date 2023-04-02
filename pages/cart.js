@@ -2,6 +2,7 @@ import styles from "../styles/Cart.module.css";
 import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import {  useState } from "react";
+
 import axios from "axios";
 import { useRouter } from "next/router";
 import { reset } from "../state/cartSlice";
@@ -15,13 +16,17 @@ const Cart = () => {
   const router = useRouter();
 
   const createOrder = async (data) => {
-    
-      const res = await axios.post(`${process.env.API_URL}/orders`, data);
+    try {
+      const res = await axios.post("http://localhost:3000/api/orders", data);
       if (res.status === 201) {
         dispatch(reset());
         router.push(`/orders/${res.data._id}`);
       }
+    } catch (err) {
+      console.log(err);
+    }
   };
+
   return (
     <div className={styles.container}>
       <div className={styles.left}>

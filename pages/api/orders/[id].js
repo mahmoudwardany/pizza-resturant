@@ -1,14 +1,13 @@
 import dbConnect from "../../../util/mongo";
-import Order from "../../../model/Order";
+import Order from "../../../model/Order"
 
 const handler = async (req, res) => {
- 
- await dbConnect();
   const {
     method,
     query: { id },
   } = req;
 
+  await dbConnect();
 
   if (method === "GET") {
     try {
@@ -32,4 +31,4 @@ const handler = async (req, res) => {
   }
 };
 
-export default handler
+export default handler;
