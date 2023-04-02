@@ -76,7 +76,7 @@ const handleStatus=async(id)=>{
     </div>
     <div className='grid col-md-5 col-sm-10 text-center'>
       <h1 className={styles.title}>Orders</h1>
-      <table className='col-md-12 '>
+      <table className='col-md-12 border  border-table-active'>
         <tbody>
           <tr className={styles.trTitle}>
             <th>Id</th>
@@ -97,7 +97,7 @@ const handleStatus=async(id)=>{
             </td>
             <td>{status[order.status]}</td>
             <td>
-              <button onClick={() => handleStatus(order._id)} className='btn btn-info'>
+              <button onClick={() => handleStatus(order._id)} className='btn btn-info mb-2 p-1'>
                 Next Stage
               </button>
             </td>
