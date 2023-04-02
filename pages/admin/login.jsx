@@ -2,6 +2,7 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import styles from "../../styles/Login.module.css";
+import domain from "../../util/confing";
 
 const Login = () => {
   const [username, setUsername] = useState(null);
@@ -11,7 +12,7 @@ const Login = () => {
 
   const handleClick = async () => {
     try {
-      await axios.post("http://localhost:3000/api/login", {
+      await axios.post(`${domain}/api/login`, {
         username,
         password,
       });
