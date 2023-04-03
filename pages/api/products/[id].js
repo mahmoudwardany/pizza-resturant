@@ -15,9 +15,6 @@ export default async function handleReq(req,res){
         }
       }
     if (method === "PUT") {
-      if(!token || token !== process.env.token){
-        return res.status(401).json("Not authenticated!")
-      }
         try {
           const product =await  Product.findByIdAndUpdate(req.body);
           res.status(201).json(product);
@@ -26,9 +23,7 @@ export default async function handleReq(req,res){
         }
       }
       if (method === "DELETE") {
-        if(!token || token !== process.env.token){
-          return res.status(401).json("Not authenticated!")
-        }
+    
         try {
           await  Product.findByIdAndDelete(id);
           res.status(201).json('the product is Deleted');
