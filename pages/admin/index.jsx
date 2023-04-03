@@ -8,32 +8,31 @@ const Admin = ({orders,products}) => {
     const [orderList,setOrderList]=useState(orders)
     const status=["preparing", "on the way", "delivered"]
     const handleDelete = async (id) => {
-      console.log(id);
       try {
-        const res = await axios.delete(
-          `${domain}/api/products/` + id
-        );
+        const res = await axios.delete(`${domain}/api/products/`+id)
         setPizzaList(pizzaList.filter((pizza) => pizza._id !== id));
       } catch (err) {
         console.log(err);
       }
     };
 
-const handleStatus=async(id)=>{
-    const item=orderList.filter((order) => order._id === id)[0]
-    const currentStatus=item.status
-    try {
-        const res=await axios.put(`${domain}` + id ,{
-            status:currentStatus + 1,
-        })
+
+    const handleStatus = async (id) => {
+      const item = orderList.filter((order) => order._id === id)[0];
+      const currentStatus = item.status;
+  
+      try {
+        const res = await axios.put(`${domain}/api/orders/` + id, {
+          status: currentStatus + 1,
+        });
         setOrderList([
-            res.data,
-            ...orderList.filter((order) => order._id !== id)
-        ])
-    } catch (err) {
-        console.log(err)
-    }
-}
+          res.data,
+          ...orderList.filter((order) => order._id !== id),
+        ]);
+      } catch (err) {
+        console.log(err);
+      }
+    };
   return (
     <div className='container mb-3'>
       <div className="row justify-center align-content-center align-items-center g-3">
