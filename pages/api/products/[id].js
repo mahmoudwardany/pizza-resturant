@@ -4,8 +4,7 @@ import Product from "../../../model/Product"
 export default async function handleReq(req,res){
  await dbConnect();
 
-    const {method,query:{id},cookies}=req
-    const token=cookies.token
+    const {method,query:{id}}=req
     if (method === "GET") {
         try {
           const product = await Product.findById(id);
@@ -23,9 +22,7 @@ export default async function handleReq(req,res){
         }
       }
       if (method === "DELETE") {
-        if(!token || token !== process.env.token){
-          return res.status(401).json("Not authenticated!")
-        }
+      
         try {
           await Product.findByIdAndDelete(id);
           res.status(200).json("The product has been deleted!");

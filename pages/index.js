@@ -24,7 +24,6 @@ export default function Home({pizzaList,admin}) {
 }
 export const getServerSideProps = async (ctx) => {
 let myCookie=ctx.req?.cookies || ""
-console.log(ctx.req)
 let admin=false
 if(myCookie.token === process.env.TOKEN){
   admin = true
