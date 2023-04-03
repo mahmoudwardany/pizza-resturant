@@ -23,10 +23,12 @@ export default async function handleReq(req,res){
         }
       }
       if (method === "DELETE") {
-    
+        if(!token || token !== process.env.token){
+          return res.status(401).json("Not authenticated!")
+        }
         try {
-          await  Product.findByIdAndDelete(id);
-          res.status(201).json('the product is Deleted');
+          await Product.findByIdAndDelete(id);
+          res.status(200).json("The product has been deleted!");
         } catch (err) {
           res.status(500).json(err);
         }

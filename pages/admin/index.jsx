@@ -9,7 +9,7 @@ const Admin = ({orders,products}) => {
     const status=["preparing", "on the way", "delivered"]
     const handleDelete = async (id) => {
       try {
-        const res = await axios.delete(`${domain}/api/products/$${id}`)
+        const res = await axios.delete(`${domain}/api/products/${id}`)
         setPizzaList(pizzaList.filter((pizza) => pizza._id !== id));
       } catch (err) {
         console.log(err);
@@ -56,7 +56,7 @@ const Admin = ({orders,products}) => {
                   src={product.img}
                   width={50}
                   height={50}
-                  objectFit="cover"
+                  
                   alt=""
                 />
               </td>
