@@ -7,14 +7,17 @@ const Admin = ({orders,products}) => {
     const [pizzaList,setPizzaList]=useState(products)
     const [orderList,setOrderList]=useState(orders)
     const status=["preparing", "on the way", "delivered"]
-const handleDelete=async(id)=>{
-    try {
-        const res=await axios.delete ( `${domain}` + id)
-        setPizzaList(pizzaList.filter((pizza)=> pizza._id !== id))
-    } catch (error) {
-        console.log(error)
-    }
-}
+    const handleDelete = async (id) => {
+      console.log(id);
+      try {
+        const res = await axios.delete(
+          `${domain}/api/products/` + id
+        );
+        setPizzaList(pizzaList.filter((pizza) => pizza._id !== id));
+      } catch (err) {
+        console.log(err);
+      }
+    };
 
 const handleStatus=async(id)=>{
     const item=orderList.filter((order) => order._id === id)[0]
