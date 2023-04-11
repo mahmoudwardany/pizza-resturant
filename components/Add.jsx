@@ -2,6 +2,8 @@ import { useState } from "react";
 import styles from "../styles/Add.module.css";
 import axios from "axios";
 import domain from '../util/confing'
+import { useRouter } from "next/router";
+
 const Add = ({ setClose }) => {
   const [file, setFile] = useState(null);
   const [title, setTitle] = useState(null);
@@ -9,6 +11,7 @@ const Add = ({ setClose }) => {
   const [prices, setPrices] = useState([]);
   const [extraOptions, setExtraOptions] = useState([]);
   const [extra, setExtra] = useState(null);
+  const router = useRouter();
 
   const changePrice = (e, index) => {
     const currentPrices = prices;
@@ -20,7 +23,7 @@ const Add = ({ setClose }) => {
     setExtra({ ...extra, [e.target.name]: e.target.value });
   };
 
-  const handleExtra = (e) => {
+  const handleExtra = () => {
     setExtraOptions((prev) => [...prev, extra]);
   };
 
@@ -46,6 +49,7 @@ const Add = ({ setClose }) => {
      const sendData= await axios.post(`${domain}/api/products`, newProduct);
      console.log(sendData)
       setClose(true);
+      router.push('/')
     } catch (err) {
       console.log(err);
     }
