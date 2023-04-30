@@ -10,7 +10,8 @@ const Login = () => {
   const [error, setError] = useState(false);
   const router = useRouter();
 
-  const handleClick = async () => {
+  const handleClick = async (e) => {
+    e.preventDefault()
     try {
       await axios.post(`${domain}/api/login`, {
         username,
@@ -26,21 +27,24 @@ const Login = () => {
     <div className={styles.container}>
       <div className={styles.wrapper}>
         <h1>Admin Dashboard</h1>
-        <input
+        <form onSubmit={handleClick}>
+           <input
           placeholder="username"
-          className={styles.input}
+          className='form-control mb-3'
           onChange={(e) => setUsername(e.target.value)}
         />
         <input
           placeholder="password"
           type="password"
-          className={styles.input}
+          className='form-control mb-3'
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button onClick={handleClick} className={styles.button}>
+        <button  className={styles.button}>
           Sign In
         </button>
-        {error && <span className={styles.error}>Wrong Credentials!</span>}
+        {error && <span className={styles.error}>Wrong Credentials!</span>} 
+        </form>
+      
       </div>
     </div>
   );
