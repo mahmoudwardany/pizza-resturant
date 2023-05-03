@@ -1,5 +1,5 @@
 .container {
-    height: 100px;
+    height: 70px;
     padding: 0px 50px;
     background-color: #d1411e;
     display: flex;
@@ -8,6 +8,9 @@
     position: sticky;
     top: 0;
     z-index: 999;
+    margin-bottom: 20px;
+    box-shadow: 3px 3px 3px rgb(173, 27, 27);
+    overflow: hidden;
   }
   
   .item {

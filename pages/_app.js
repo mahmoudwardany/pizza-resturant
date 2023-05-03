@@ -8,7 +8,7 @@ import  store  from '../state/store';
 function MyApp({ Component, pageProps }) {
   return (
     <Provider store={store}>
-  <Layout>
+  <Layout id='body'>
 
       <Component {...pageProps} />
   </Layout>
