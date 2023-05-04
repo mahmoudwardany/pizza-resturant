@@ -42,6 +42,7 @@ const Login = () => {
         <button  className={styles.button}>
           Sign In
         </button>
+        <br />
         {error && <span className={styles.error}>Wrong Credentials!</span>} 
         </form>
       

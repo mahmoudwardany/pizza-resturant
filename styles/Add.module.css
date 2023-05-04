@@ -12,7 +12,7 @@
     margin:20px auto;
   box-shadow: 3px 3px 3px #d1411e;
   transition: all 1s ;
-  animation: btn 3s  1s infinite  alternate ;
+  animation: btn 3s  1s infinite ease-out  alternate ;
   }
   @keyframes btn {
     0% {
