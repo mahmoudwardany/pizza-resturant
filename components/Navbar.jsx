@@ -18,7 +18,7 @@ const {products}=useSelector(state=> state.cart)
           </div>
           <div className={styles.item}>
             <ul className={styles.list}>
-              <li className='fst-italic fs-1'>Pizziera</li>
+              <li className='fst-italic fs-1'>Pizziera</li>'s
             </ul>
           </div>
           <Link href='/cart'>
