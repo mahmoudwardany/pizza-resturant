@@ -6,7 +6,9 @@
     align-items: center;
     justify-content: center;
     padding: 20px 40px;
-    cursor: pointer;
+    cursor: pointer; 
+    margin-left: 3px;
+border: none;
   }
   
   .title {
@@ -14,7 +16,7 @@
     font-weight: bold;
     color: #d1411e;
   }
-  
+
   .price {
     font-size: 18px;
     font-weight: bold;
